@@ -9,13 +9,14 @@ body {
 }
 
 .container {
+    background-color: black;
     border: solid black;
     border-width: 5px;
     display: flex;
     justify-items: center;
     align-items: center;
-    min-height: 300px;
-    min-width: 300px;
+    min-height: 500px;
+    min-width: 500px;
     max-height: 500px;
     max-width: 500px;
     text-align: center;
@@ -26,11 +27,6 @@ body {
 }
 
 .container > div {
-    flex: 1;
-    max-height: auto;
-    max-width: auto;
-    min-height: 26px;
-    min-width: 26px;
     margin: 0;
     padding: 0;
 }
