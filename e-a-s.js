@@ -4,17 +4,21 @@ const big_button = document.getElementById('big');
 const med_button = document.getElementById('med');
 const small_button = document.getElementById('small');
 const clear_button = document.getElementById('clear');
+//container.innerHTML = "hello"
 
 
 big_button.addEventListener('click', function () {
+    container.innerHTML = "";
     grid(64);
 });
 
 med_button.addEventListener('click', function () {
+    container.innerHTML = "";
     grid(32);
 });
 
 small_button.addEventListener('click', function () {
+    container.innerHTML = "";
     grid(16);
 });
 
@@ -42,7 +46,6 @@ function grid(size) {
         first();
     } else {
         let hw = size;
-        console.log(size);
         let gridSize = (hw * hw);
         let containerSize = 500
         let cellPixel = Math.sqrt(((containerSize * containerSize)/ gridSize)) - 2;

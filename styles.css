@@ -8,6 +8,20 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+#buttons {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    justify-content: space-evenly;
+    flex: 0;
+}
+
+.button {
+    margin: 10px 0;
+    height: auto;
+
+}
+
 .container {
     background-color: black;
     border: solid black;
