@@ -3,6 +3,8 @@ const cell = document.createElement('div');
 const big_button = document.getElementById('big');
 const med_button = document.getElementById('med');
 const small_button = document.getElementById('small');
+const rgb_button = document.getElementById('rgb');
+const normal_button = document.getElementById('normal');
 const clear_button = document.getElementById('clear');
 //container.innerHTML = "hello"
 
@@ -70,9 +72,34 @@ grid();
 container.addEventListener('mousemove', changeColor);
 function changeColor(e) {
     let target = e.target || e.srcElement;
-    target.style.backgroundColor = "black";
+    target.style.backgroundColor = "darkslategrey";
     return false;
 }
+
+normal_button.addEventListener('click', function () {
+    container.addEventListener('mousemove', changeColor);
+function changeColor(e) {
+    let target = e.target || e.srcElement;
+    target.style.backgroundColor = "darkslategrey";
+    return false;
+}})
+
+rgb_button.addEventListener('click', function () {
+    container.addEventListener('mousemove', randomColor);
+function randomColor(e) {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    let rgb = `rgb(${r}, ${g}, ${b})`;
+    let target = e.target || e.srcElement;
+    target.style.backgroundColor = rgb;
+    return false;
+}})
+
+
+
+
+console.log(randomColor());
 
 
 
