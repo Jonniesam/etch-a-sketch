@@ -1,28 +1,22 @@
 const container = document.getElementById("container");
 const cell = document.createElement('div');
-const big_button = document.getElementById('big');
-const med_button = document.getElementById('med');
-const small_button = document.getElementById('small');
 const rgb_button = document.getElementById('rgb');
 const normal_button = document.getElementById('normal');
 const clear_button = document.getElementById('clear');
-//container.innerHTML = "hello"
+const slider = document.getElementById('myRange');
+const output = document.getElementById('value');
 
-
-big_button.addEventListener('click', function () {
+clear_button.addEventListener('click', function () {
     container.innerHTML = "";
-    grid(64);
-});
+    grid();
+})
 
-med_button.addEventListener('click', function () {
-    container.innerHTML = "";
-    grid(32);
-});
+output.textContent = `${slider.value}`;
 
-small_button.addEventListener('click', function () {
+slider.oninput = function slide () {
     container.innerHTML = "";
-    grid(16);
-});
+    grid(output.textContent = this.value);
+}
 
 
 function first() {
@@ -97,9 +91,6 @@ function randomColor(e) {
 }})
 
 
-
-
-console.log(randomColor());
 
 
 

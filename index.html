@@ -14,9 +14,10 @@
     </div>
     <div id="main" class = "main">
         <div id = "buttons">
-            <button id="big" class="button">Large</button>
-            <button id="med" class="button">Med</button>
-            <button id="small" class="button">Small</button>
+            <div id="slidercontainer">
+            <input type="range" min="16" max="64" value="1" id="myRange" class="slider">
+            <p>Grid Size:<span id="value"></span></p>
+        </div>
             <button id="rgb" class="button">RGB</button>
             <button id="normal" class="button">Classic</button>
             <button id="clear" class="button">Clear</button>

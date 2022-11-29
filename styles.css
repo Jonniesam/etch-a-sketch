@@ -13,11 +13,11 @@ body {
     background-color: indianred;
     justify-content: center;
     align-items: center;
-    min-width: 510px;
+    min-width: 600px;
     font-family: sans-serif;
     color: white;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .main {
@@ -32,8 +32,8 @@ body {
     justify-content: space-evenly;
     flex: 0;
     background-color: indianred;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .button {
@@ -46,13 +46,39 @@ body {
     height: 25px;
     font-weight: 600;
     text-align: center;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s ease-in-out;
 }
+
+.button:hover {
+    background: indianred;
+    cursor: pointer;
+    text-shadow: 2px 2px 5px indianred;
+    box-shadow: 
+    0 0 2px 3px white;
+    color: white;
+    border-color: black;
+    transform: scale(1.05);
+}
+
+.button:focus{
+    background: indianred;
+    cursor: pointer;
+    text-shadow: 2px 2px 5px indianred;
+    box-shadow: 
+    0 0 2px 3px white;
+    color: white;
+    border-color: black;
+    transform: scale(1.05);
+}
+
 
 .container {
     background-color: white;
     border: solid indianred;
-    border-width: 5px;
+    border-width: 50px;
     display: flex;
     justify-items: center;
     align-items: center;
@@ -70,4 +96,23 @@ body {
 .container > div {
     margin: 0;
     padding: 0;
+}
+
+#slidercontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    -webkit-apperance: none;
+}
+
+p {
+    color: white;
+    font-family: sans-serif;
+    font-weight: 500;
+    margin-top: 0px;    
+
 }
