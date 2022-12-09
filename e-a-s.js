@@ -6,12 +6,7 @@ const clear_button = document.getElementById('clear');
 const slider = document.getElementById('myRange');
 const output = document.getElementById('value');
 
-clear_button.addEventListener('click', function () {
-    container.innerHTML = "";
-    grid();
-})
-
-output.textContent = `${slider.value}`;
+output.textContent = slider.value;
 
 slider.oninput = function slide () {
     container.innerHTML = "";
@@ -19,8 +14,8 @@ slider.oninput = function slide () {
 }
 
 
-function first() {
-    let gridSize = (16 * 16);
+function load(size) {
+    let gridSize = (size * size);
         let containerSize = 500
         let cellPixel = Math.sqrt(((containerSize * containerSize)/ gridSize)) - 2
     for(let i = 1; i <= gridSize; i++){
@@ -36,59 +31,72 @@ function first() {
 };
 
 
-
 function grid(size) {
     if(size === undefined){
-        first();
+        size = 16;
+        load(size);
     } else {
-        let hw = size;
-        let gridSize = (hw * hw);
-        let containerSize = 500
-        let cellPixel = Math.sqrt(((containerSize * containerSize)/ gridSize)) - 2;
-    for(let i = 1; i <= gridSize; i++){
-        const container = document.getElementById("container");
-        const cell = document.createElement('div');
-        cell.style.border = "solid";
-        cell.style.borderWidth = "1px";
-        cell.style.backgroundColor = "white";
-        cell.id ="cell";
-        cell.style.width = `${cellPixel}px`;
-        cell.style.height = `${cellPixel}px`;
-        container.appendChild(cell); 
-    }
-    
+        load(size);
+    } 
 }
-}
-
 grid();
 
 
-container.addEventListener('mousemove', changeColor);
-function changeColor(e) {
-    let target = e.target || e.srcElement;
-    target.style.backgroundColor = "darkslategrey";
-    return false;
-}
+let pressedMouse = false;
+container.addEventListener("mouseup", function(e){
+    pressedMouse=false;
+})
+
+container.addEventListener('mousedown', function (e) {
+    pressedMouse=true;
+    e.target.style.backgroundColor = "#293232";
+    container.addEventListener('mousemove', function (e) {
+        if(pressedMouse===true){
+    e.target.style.backgroundColor = "#293232";
+
+        }
+    });
+    });
 
 normal_button.addEventListener('click', function () {
-    container.addEventListener('mousemove', changeColor);
-function changeColor(e) {
-    let target = e.target || e.srcElement;
-    target.style.backgroundColor = "darkslategrey";
-    return false;
-}})
+    container.addEventListener('mousedown', function (e) {
+        pressedMouse=true;
+        e.target.style.backgroundColor = "#293232";
+        container.addEventListener('mousemove', function (e) {
+            if(pressedMouse===true){
+            let target = e.target;
+        target.style.backgroundColor = "#293232";
+            }
+        });
+        });
+    })
 
 rgb_button.addEventListener('click', function () {
-    container.addEventListener('mousemove', randomColor);
-function randomColor(e) {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    let rgb = `rgb(${r}, ${g}, ${b})`;
-    let target = e.target || e.srcElement;
-    target.style.backgroundColor = rgb;
-    return false;
-}})
+    container.addEventListener('mousedown', function (e) {
+        pressedMouse=true;
+        const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            let rgb = `rgb(${r}, ${g}, ${b})`;
+            e.target.style.backgroundColor = rgb;
+        container.addEventListener('mousemove', function (e) {
+            if(pressedMouse===true){
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            let rgb = `rgb(${r}, ${g}, ${b})`;
+        e.target.style.backgroundColor = rgb;
+            }
+        });
+        })
+    })
+
+    clear_button.addEventListener('click', function () {
+        container.innerHTML = "";
+        grid(slider.value);
+        output.textContent = slider.value;
+    })
+
 
 
 
